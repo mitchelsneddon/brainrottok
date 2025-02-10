@@ -14,24 +14,52 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
           submodules: true
           lfs: false
-      - name: Build And Deploy
-        id: builddeploy
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Inject Environment Variables
+        run: |
+          echo "REACT_APP_OPENAI_API_KEY=${{ secrets.REACT_APP_OPENAI_API_KEY }}" >> $GITHUB_ENV
+          echo "REACT_APP_OPENAI_DEPLOYMENT_NAME=${{ secrets.REACT_APP_OPENAI_DEPLOYMENT_NAME }}" >> $GITHUB_ENV
+          echo "REACT_APP_OPENAI_ENDPOINT=${{ secrets.REACT_APP_OPENAI_ENDPOINT }}" >> $GITHUB_ENV
+          echo "REACT_APP_AZURE_SPEECH_KEY=${{ secrets.REACT_APP_AZURE_SPEECH_KEY }}" >> $GITHUB_ENV
+          echo "REACT_APP_AZURE_SPEECH_REGION=${{ secrets.REACT_APP_AZURE_SPEECH_REGION }}" >> $GITHUB_ENV
+
+      - name: Create Config JSON File
+        run: |
+          mkdir -p public
+          echo '{ 
+            "REACT_APP_OPENAI_API_KEY": "${{ secrets.REACT_APP_OPENAI_API_KEY }}", 
+            "REACT_APP_OPENAI_DEPLOYMENT_NAME": "${{ secrets.REACT_APP_OPENAI_DEPLOYMENT_NAME }}",
+            "REACT_APP_OPENAI_ENDPOINT": "${{ secrets.REACT_APP_OPENAI_ENDPOINT }}",
+            "REACT_APP_AZURE_SPEECH_KEY": "${{ secrets.REACT_APP_AZURE_SPEECH_KEY }}",
+            "REACT_APP_AZURE_SPEECH_REGION": "${{ secrets.REACT_APP_AZURE_SPEECH_REGION }}"
+          }' > public/config.json
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_MEADOW_060AF3D0F }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_TREE_0F7E14A0F }}
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "build" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+          output_location: "build" # Built app content directory
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -42,5 +70,5 @@ jobs:
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_MEADOW_060AF3D0F }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_TREE_0F7E14A0F }}
           action: "close"
