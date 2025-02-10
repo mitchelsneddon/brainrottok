@@ -139,13 +139,17 @@ body {
   color: #faf9f6;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .App {
     max-width: 414px; /* iPhone 11 Pro Max screen width */
     margin: 0 auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
+  }
+
+  .modal-lg {
+    max-width: 400px !important;
   }
 
   .navbar,
