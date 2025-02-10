@@ -1,5 +1,5 @@
 import React from "react";
-import brainrotlogo from "./assets/brainrotlogo.PNG";
+import brainrotlogo from "./assets/brainrotloading.GIF";
 
 const NavbarTop = () => {
   return (
