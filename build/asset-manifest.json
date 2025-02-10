@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5959a3ba.css",
+    "main.js": "/static/js/main.d452312b.js",
+    "static/js/488.e053f80d.chunk.js": "/static/js/488.e053f80d.chunk.js",
+    "static/media/brainrotloading.GIF": "/static/media/brainrotloading.79cda25c336291dfc60c.GIF",
+    "static/media/brainrotlogo.PNG": "/static/media/brainrotlogo.b6d1f3e9bc2419393102.PNG",
+    "index.html": "/index.html",
+    "main.5959a3ba.css.map": "/static/css/main.5959a3ba.css.map",
+    "main.d452312b.js.map": "/static/js/main.d452312b.js.map",
+    "488.e053f80d.chunk.js.map": "/static/js/488.e053f80d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5959a3ba.css",
+    "static/js/main.d452312b.js"
+  ]
+}

@@ -1,0 +1,170 @@
+body {
+  background-color: #f8f9fa; /* Light background to highlight the app container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.article-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+
+.splash-screen {
+  height: 100vh;
+  width: 100vw;
+}
+
+.article {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.overlay {
+  background: rgba(33, 37, 44, 0.6);
+  color: #faf9f6;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  pointer-events: auto;
+}
+
+.btn {
+  font-family: "Montserrat", serif !important;
+  font-weight: 700 !important;
+  border-radius: 0 !important;
+  font-size: 1.25rem !important;
+  color: #faf9f6 !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-family: "Montserrat", serif;
+  color: #faf9f6 !important;
+}
+
+.category-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: #faf9f6;
+}
+
+.category-section:hover {
+  color: #ccc;
+}
+
+.article-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Montserrat", serif;
+}
+
+.article-extract {
+  font-size: 1rem;
+  font-family: "Roboto", serif;
+}
+
+.ai-button {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Montserrat", serif;
+}
+
+.category-text {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-family: "Montserrat", serif;
+}
+
+.modal-body {
+  font-size: 1.25rem;
+  font-family: "Roboto", serif;
+}
+
+.modal-title {
+  font-family: "Montserrat", serif !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+}
+
+.modal-content {
+  background: unset !important;
+}
+
+.modal-header {
+  border-bottom: unset !important;
+}
+
+.btn-close {
+  filter: invert(1);
+}
+
+.navbar {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.hashtags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hashtag {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.25rem !important;
+  font-size: 0.875rem;
+  color: #faf9f6;
+}
+
+@media (min-width: 1024px) {
+  .App {
+    max-width: 414px; /* iPhone 11 Pro Max screen width */
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .navbar,
+  .article-container {
+    max-width: 414px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  body {
+    background-color: #f8f9fa; /* Light background to highlight the app container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .overlay {
+    max-width: 414px;
+    width: 100%;
+    margin: 0 auto;
+    position: unset;
+  }
+}
