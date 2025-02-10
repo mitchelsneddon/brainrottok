@@ -15,6 +15,9 @@ body {
   justify-content: center;
   touch-action: none;
 }
+.modal {
+  padding-left: unset !important;
+}
 
 .splash-screen {
   height: 100vh;
