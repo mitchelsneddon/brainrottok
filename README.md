@@ -37,7 +37,7 @@ This personal project was an attempt to spend less time mindlessly scrolling my 
 ## Installation & Setup
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/brainrot.git
+   git clone https://github.com/mitchelsneddon/brainrottok.git
    cd brainrot
    ```
 2. Install dependencies:
