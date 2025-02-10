@@ -314,7 +314,7 @@ const ArticleView = ({ category, setLoading }) => {
             {
               role: "system",
               content:
-                "You are an assistant that creates TLDR summaries of wikipedia articles in a fun way that makes them interesting, no emojis.",
+                "You are an assistant that creates TLDR summaries of wikipedia articles in a fun way that makes them interesting, no emojis. If you know something on the subject add it, but dont make anything up.",
             },
             {
               role: "user",
